@@ -30,7 +30,7 @@ class LinkedList:
         newNode = Node(data, self.head)
         self.head = newNode
         self.size += 1
-        return True
+
 
     def printNode(self):
         curr = self.head
@@ -38,13 +38,41 @@ class LinkedList:
             print(curr.data)
             curr = curr.getNextNode()
 
+    def removeNode(self, value):
+
+        prev = None
+        curr = self.head
+        while curr:
+            if curr.getData() == value:
+                if prev:
+                    prev.setNextNode(curr.getNextNode())
+                else:
+                    self.head = curr.getNextNode()
+                return True
+
+            prev = curr
+            curr = curr.getNextNode()
+
+        return False
+
 
 myList = LinkedList()
 print("Inserting")
-print(myList.addNode(5))
-print(myList.addNode(15))
-print(myList.addNode(25))
-print("Printing")
+list = []
+with open('textFile.txt','r') as f:
+    for line in f:
+        for word in line.split():
+            list.append(word)
+           # print(word)
+#print(list)
+for i in range(0,len(list)) :
+    data = list[i]
+    myList.addNode(list[i])
+    #print(list[i])
+# print(myList.addNode(list[i]))
+# print(myList.addNode(15))
+# print(myList.addNode(25))
+print("Printing the linked list : ")
 myList.printNode()
-print("Size")
+print("Size of the linked list is : ")
 print(myList.getSize())
