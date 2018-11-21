@@ -3,57 +3,67 @@ class Node:
     def __init__(self, data) :
         self.data = data
         self.next = None
-        print(data)
+        # print(data)
 
 
 class LinkedList:
-        #print(data)
-    def __init__(self, head = None):
-        #print(self.data)
-        self.head = head
-        self.lastNode = None
-        self.size = 0
+
+    def __init__(self):
+        self.head = None
+        return
 
 
-    def addNode(self, data):
-        #print(self.data)
-        newNode = Node(data) # Creating Node class object to initialize node with data
-
+    def addNode(self, newNode):
+        #print(newNode)
+        # print(self.head , newNode)
         if self.head is None :
-                self.head = newNode
+            self.head = newNode
+            # print(self.head , newNode)
         else :
-            self.lastNode = self.head
+            lastNode = self.head
             while True:
-                if self.lastNode.next is None:
+                if lastNode.next is None:
                     break
                 else :
-                    self.lastNode = self.lastNode.next
-                    self.lastNode.next = newNode
+                    lastNode = lastNode.next
+            lastNode.next = newNode
+        return
 
     def printLinkedList(self):
         currentNode = self.head
         while True :
-                if currentNode == None :
+                if currentNode is None :
                     break
-                print(currentNode.data)
-                currentNode = currentNode.next
+                else :
+                    print("{" , currentNode.data , " , " , currentNode.next , "}")
+                    currentNode = currentNode.next
+        return
+    # def remove(self):
+
 
 myList = LinkedList()
 # myList.addNode(15)
 # myList.addNode(12)
-list = []
-with open('textFile.txt','r') as f:
-    for line in f:
-        for word in line.split():
-            list.append(word)
-           # print(word)
-#print(list)
-for i in range(0,len(list)) :
-    data = list[i]
-    myList.addNode(data)
+# list = []
+# with open('textFile.txt','r') as f:
+#     for line in f:
+#         for word in line.split():
+#             list.append(word)
+#            # print(word)
+# #print(list)
+# for i in range(0,len(list)) :
+#     data = list[i]
+#     myList.addNode(data)
     #print(list[i])
-# node = LinkedList()
-# node.head = Node(12)
-# node.head.next = Node(1)
-# node3 = Node(9)
-# node2.next = node3
+node1 = Node(15)
+ll = LinkedList()
+ll.addNode(node1)
+
+node2 = Node("Akanksha")
+ll1 = LinkedList()
+ll1.addNode(node2)
+
+
+
+
+#
